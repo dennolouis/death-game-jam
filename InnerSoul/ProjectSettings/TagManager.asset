@@ -12,6 +12,8 @@ TagManager:
   - Grass
   - Stone
   - Tiles
+  - CinemachineTarget
+  - Monster
   layers:
   - Default
   - TransparentFX
