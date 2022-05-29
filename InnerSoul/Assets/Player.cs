@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
 	public float AddWalkSpeed = 1;
 	private bool hasAniComp = false;
 
+	public bool hitting = false;
+
 	// Use this for initialization
 	void Start()
 	{
@@ -169,6 +171,16 @@ public class Player : MonoBehaviour
 
 	}
 
+	public void HitEnemy()
+    {
+		hitting = true;
+		Invoke("StopHitting", 1);
+    }
+
+	void StoptHitting()
+    {
+		hitting = false;
+    }
     
     
 }

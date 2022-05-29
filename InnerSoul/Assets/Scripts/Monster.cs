@@ -8,11 +8,14 @@ public class Monster : MonoBehaviour
 
     [SerializeField]
     float speed = 1;
+    [SerializeField]
+    Player player;
 
     // Start is called before the first frame update
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Finish").transform;
+        player = GameObject.FindGameObjectWithTag("Reaper").GetComponent<Player>();
         transform.LookAt(target);
     }
 
@@ -21,12 +24,22 @@ public class Monster : MonoBehaviour
     {
         transform.Translate(new Vector3(0, 0, 1) * speed * Time.deltaTime);
         CheckIfReachedGoal();
+        CheckIfInPlayerRange();
     }
 
     void CheckIfReachedGoal()
     {
         if(Vector3.Distance(transform.position, target.position) < 2)
         {
+            Destroy(gameObject);
+        }
+    }
+
+    public void CheckIfInPlayerRange()
+    {
+        if (Vector3.Distance(transform.position, player.gameObject.transform.position) < 1 && player.hitting)
+        {
+
             Destroy(gameObject);
         }
     }
