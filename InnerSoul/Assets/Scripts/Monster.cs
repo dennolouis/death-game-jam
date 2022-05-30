@@ -37,7 +37,7 @@ public class Monster : MonoBehaviour
 
     public void CheckIfInPlayerRange()
     {
-        if (Vector3.Distance(transform.position, player.gameObject.transform.position) < 1 && player.hitting)
+        if (Vector3.Distance(transform.position, player.gameObject.transform.position) < 1)
         {
 
             Destroy(gameObject);

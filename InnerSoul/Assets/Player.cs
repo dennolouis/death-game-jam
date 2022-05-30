@@ -177,7 +177,7 @@ public class Player : MonoBehaviour
 		Invoke("StopHitting", 1);
     }
 
-	void StoptHitting()
+	void StopHitting()
     {
 		hitting = false;
     }
